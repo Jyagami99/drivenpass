@@ -1,4 +1,24 @@
 {
+  "name": "projeto19-drivenpass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc src/index.ts",
+    "start": "ts-node ./src/index.ts",
+    "dev": "nodemon ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jyagami99/drivenpass.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jyagami99/drivenpass/issues"
+  },
+  "homepage": "https://github.com/Jyagami99/drivenpass#readme",
+  "description": "",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
