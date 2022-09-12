@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
+// import { User } from "@prisma/client";
 import { CreateUserData } from "../types/createUserData";
 import * as userRepository from "../repositories/userRepository";
 import {
@@ -11,9 +12,11 @@ import jwt from "jsonwebtoken";
 
 dotenv.config();
 
+// export type CreateUserData = Omit<User, "id">;
+
 async function createUser(user: CreateUserData) {
   const existingUser = await userRepository.findUserByEmail(user.email);
-  if (!existingUser) throw conflictError("User doesn't exist");
+  if (existingUser) throw conflictError("User doesn't exist");
 
   const SALT = 10;
   const hashedPassword = bcrypt.hashSync(user.password, SALT);

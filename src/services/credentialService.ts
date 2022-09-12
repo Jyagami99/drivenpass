@@ -1,11 +1,11 @@
 import { User } from "@prisma/client";
-import * as credencialRepository from "../repositories/credentialRepository";
+import * as credentialRepository from "../repositories/credentialRepository";
 import { CreateCredentialData } from "../types/createCredentialData";
 import { decrypt, encrypt } from "../utils/criptrUtils";
-import { notFoundError } from "../utils/errorUtils";
+import { conflictError, notFoundError } from "../utils/errorUtils";
 
 async function getAllCredentials(userId: number) {
-  const credentials = await credencialRepository.getAll(userId);
+  const credentials = await credentialRepository.getAll(userId);
   return credentials.map((credential) => {
     const { password } = credential;
     return { ...credential, password: decrypt(password) };
@@ -13,7 +13,7 @@ async function getAllCredentials(userId: number) {
 }
 
 async function getCredential(userId: number, credentialId: number) {
-  const credential = await credencialRepository.getCredential(
+  const credential = await credentialRepository.getCredential(
     userId,
     credentialId
   );
@@ -25,22 +25,24 @@ async function getCredential(userId: number, credentialId: number) {
 }
 
 async function createCredential(user: User, credential: CreateCredentialData) {
-  const existingCredential = await credencialRepository.getCredentialByTitle(
+  const existingCredential = await credentialRepository.getCredentialByTitle(
     user.id,
     credential.title
   );
+  if (existingCredential) throw conflictError("Title already in use");
+
   const credentialPassword = credential.password;
   const credentialInfos = {
     ...credential,
     password: encrypt(credentialPassword),
   };
 
-  await credencialRepository.insertCredential(user.id, credentialInfos);
+  await credentialRepository.insertCredential(user.id, credentialInfos);
 }
 
 async function deleteCredential(user: User, credentialId: number) {
   await getCredential(user.id, credentialId);
-  await credencialRepository.deleteCredential(credentialId);
+  await credentialRepository.deleteCredential(credentialId);
 }
 
 const credentialService = {

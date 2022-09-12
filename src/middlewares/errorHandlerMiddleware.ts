@@ -1,11 +1,18 @@
 import { NextFunction, Request, Response } from "express";
+import { errorTypeToStatusCode, isAppError } from "../utils/errorUtils";
 
-export default function errorHandler(
-  error: {
-    type: string;
-    message: string;
-  },
+export default function handleErrorsMiddleware(
+  err: any,
   req: Request,
   res: Response,
   next: NextFunction
-) {}
+) {
+  console.log("Ooops! An error occured!", err);
+
+  if (isAppError(err)) {
+    const statusCode = errorTypeToStatusCode(err.type);
+    return res.status(statusCode).send(err.message);
+  }
+
+  res.sendStatus(500);
+}

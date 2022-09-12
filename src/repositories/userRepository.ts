@@ -1,4 +1,5 @@
 import client from "../database/prisma";
+// import { CreateUserData } from "./../services/userService";
 import { CreateUserData } from "../types/createUserData";
 
 export async function findById(id: number) {
