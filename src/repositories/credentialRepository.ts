@@ -7,10 +7,7 @@ export async function getAll(userId: number) {
 
 export async function getCredential(userId: number, credentialId: number) {
   return client.credential.findFirst({
-    where: {
-      userId,
-      id: credentialId,
-    },
+    where: { userId, id: credentialId },
   });
 }
 
