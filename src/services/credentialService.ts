@@ -2,8 +2,7 @@ import { Credential, User } from "@prisma/client";
 import * as credencialRepository from "../repositories/credentialRepository";
 import { CreateCredentialData } from "../types/createCredentialData";
 import { decrypt, encrypt } from "../utils/criptrUtils";
-
-// export type CreateCredentialData = Omit<Credential, "id">;
+import { notFoundError } from "../utils/errorUtils";
 
 async function getAllCredentials(userId: number) {
   const credentials = await credencialRepository.getAll(userId);
@@ -13,11 +12,36 @@ async function getAllCredentials(userId: number) {
   });
 }
 
-async function getCredential(userId: number, credentialId: number) {}
+async function getCredential(userId: number, credentialId: number) {
+  const credential = await credencialRepository.getCredential(
+    userId,
+    credentialId
+  );
+  if (!credential) throw notFoundError("Credential doesn't exist");
+  return {
+    ...credential,
+    password: decrypt(credential.password),
+  };
+}
 
-async function createCredential(user: User, credential: CreateCredentialData) {}
+async function createCredential(user: User, credential: CreateCredentialData) {
+  const existingCredential = await credencialRepository.getCredentialByTitle(
+    user.id,
+    credential.title
+  );
+  const credentialPassword = credential.password;
+  const credentialInfos = {
+    ...credential,
+    password: encrypt(credentialPassword),
+  };
 
-async function deleteCredential(user: User, credentialId: number) {}
+  await credencialRepository.insertCredential(user.id, credentialInfos);
+}
+
+async function deleteCredential(user: User, credentialId: number) {
+  await getCredential(user.id, credentialId);
+  await credencialRepository.deleteCredential(credentialId);
+}
 
 const credentialService = {
   getCredential,
