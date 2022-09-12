@@ -1,6 +1,7 @@
 import { SafeNote, User } from "@prisma/client";
+import { CreateSafeNoteData } from "../types/createSafeNoteData";
 
-export type CreateSafeNoteData = Omit<SafeNote, "id">;
+// export type CreateSafeNoteData = Omit<SafeNote, "id">;
 
 async function getAllSafeNotes(userId: number) {}
 

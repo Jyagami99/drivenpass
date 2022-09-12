@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-
 import cardService from "../services/cardService";
 
 export async function getAllCards(req: Request, res: Response) {

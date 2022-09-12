@@ -1,6 +1,5 @@
-import { User, Card } from "@prisma/client";
-
-export type CreateCardData = Omit<Card, "id">;
+import { User } from "@prisma/client";
+import { CreateCardData } from "../types/createCardData";
 
 async function getAll(userId: number) {}
 

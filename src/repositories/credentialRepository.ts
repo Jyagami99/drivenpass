@@ -1,5 +1,5 @@
 import client from "../database/prisma";
-import { CreateCredentialData } from "../services/credentialService";
+import { CreateCredentialData } from "../types/createCredentialData";
 
 export async function getAll(userId: number) {
   return client.credential.findMany({ where: { userId } });

@@ -1,12 +1,13 @@
 import { Network, User } from "@prisma/client";
+import { CreateNetworkData } from "../types/createNetworkData";
 
-export type createNetworkData = Omit<Network, "id">;
+// export type createNetworkData = Omit<Network, "id">;
 
 async function getAllNetworks(userId: number) {}
 
 async function getNetwork(userId: number, networkId: number) {}
 
-async function createNetwork(user: User, network: createNetworkData) {}
+async function createNetwork(user: User, network: CreateNetworkData) {}
 
 async function deleteNetwork(user: User, network: number) {}
 

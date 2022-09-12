@@ -1,8 +1,9 @@
 import { Credential, User } from "@prisma/client";
 import * as credencialRepository from "../repositories/credentialRepository";
+import { CreateCredentialData } from "../types/createCredentialData";
 import { decrypt, encrypt } from "../utils/criptrUtils";
 
-export type CreateCredentialData = Omit<Credential, "id">;
+// export type CreateCredentialData = Omit<Credential, "id">;
 
 async function getAllCredentials(userId: number) {
   const credentials = await credencialRepository.getAll(userId);

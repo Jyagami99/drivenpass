@@ -1,9 +1,10 @@
 import { User } from "@prisma/client";
 import dotenv from "dotenv";
+import { CreateUserData } from "../types/createUserData";
 
 dotenv.config();
 
-export type CreateUserData = Omit<User, "id">;
+// export type CreateUserData = Omit<User, "id">;
 
 async function createUser(user: CreateUserData) {}
 
