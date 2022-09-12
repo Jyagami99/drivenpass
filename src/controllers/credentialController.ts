@@ -1,9 +1,44 @@
+import { Credential } from "@prisma/client";
 import { Request, Response } from "express";
+import credentialService from "../services/credentialService";
 
-export async function getAllCredentials(req: Request, res: Response) {}
+export async function getAllCredentials(req: Request, res: Response) {
+  const { user } = res.locals;
+  const credentials: Credential[] = await credentialService.getAllCredentials(
+    user.id
+  );
 
-export async function getCredentials(req: Request, res: Response) {}
+  res.send(credentials).status(200);
+}
 
-export async function createCredential(req: Request, res: Response) {}
+export async function getCredentials(req: Request, res: Response) {
+  const { user } = res.locals;
+  const credentialId = parseInt(req.params.id);
+  if (isNaN(credentialId)) {
+    res.sendStatus(422);
+  }
 
-export async function deleteCredential(req: Request, res: Response) {}
+  const creditial = await credentialService.getCredential(
+    user.id,
+    credentialId
+  );
+  res.send(creditial);
+}
+
+export async function createCredential(req: Request, res: Response) {
+  const { user } = res.locals;
+  const credential = req.body;
+
+  await credentialService.createCredential(user, credential);
+  res.sendStatus(201);
+}
+
+export async function deleteCredential(req: Request, res: Response) {
+  const credentialId = parseInt(req.params.id);
+  if (isNaN(credentialId)) {
+    res.sendStatus(422);
+  }
+  const { user } = res.locals;
+  await credentialService.deleteCredential(user, credentialId);
+  res.sendStatus(200);
+}

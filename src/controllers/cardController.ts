@@ -1,9 +1,36 @@
 import { Request, Response } from "express";
 
-export async function getAllCards(req: Request, res: Response) {}
+import cardService from "../services/cardService";
 
-export async function getCard(req: Request, res: Response) {}
+export async function getAllCards(req: Request, res: Response) {
+  const { user } = res.locals;
+  const cards = await cardService.getAll(user.id);
+  res.send(cards).status(200);
+}
 
-export async function createCard(req: Request, res: Response) {}
+export async function getCard(req: Request, res: Response) {
+  const { user } = res.locals;
+  const cardId = parseInt(req.params.id);
+  if (isNaN(cardId)) {
+    res.sendStatus(422);
+  }
+}
 
-export async function deleteCard(req: Request, res: Response) {}
+export async function createCard(req: Request, res: Response) {
+  const { user } = res.locals;
+  const card = req.body;
+
+  await cardService.createCard(user, card);
+  res.sendStatus(201);
+}
+
+export async function deleteCard(req: Request, res: Response) {
+  const cardId = parseInt(req.params.id);
+  if (isNaN(cardId)) {
+    res.sendStatus(422);
+  }
+
+  const { user } = res.locals;
+  await cardService.deleteCard(user, cardId);
+  res.sendStatus(200);
+}
