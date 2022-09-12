@@ -12,10 +12,10 @@ export async function ensureAuthenticatedMiddleware(
   dotenv.config();
 
   const authorization = req.headers["authorization"];
-  if (!authorization) throw unauthorizedError("Missing authorization header");
+  if (!authorization) throw unauthorizedError("Header Authorization não encontrado!");
 
   const token = authorization.replace("Bearer ", "");
-  if (!token) throw unauthorizedError("Missing token");
+  if (!token) throw unauthorizedError("Token não encontrado!");
 
   try {
     const JWT_SECRET = String(process.env.JWT_SECRET);
@@ -24,6 +24,6 @@ export async function ensureAuthenticatedMiddleware(
     res.locals.user = user;
     next();
   } catch {
-    throw unauthorizedError("Invalid token");
+    throw unauthorizedError("Token invalido!");
   }
 }

@@ -10,7 +10,7 @@ async function getAllSafeNotes(userId: number) {
 
 async function getSafeNote(userId: number, safeNoteId: number) {
   const safeNote = await safeNoteRepository.getSafeNote(userId, safeNoteId);
-  if (!safeNote) throw notFoundError("Safe note doesn't exist");
+  if (!safeNote) throw notFoundError("Esta nota não existe!");
 }
 
 async function createSafeNote(user: User, safeNote: CreateSafeNoteData) {
@@ -18,7 +18,7 @@ async function createSafeNote(user: User, safeNote: CreateSafeNoteData) {
     user.id,
     safeNote.title
   );
-  if (existingCredential) throw conflictError("title already in use");
+  if (existingCredential) throw conflictError("Este título já está em uso!");
 
   await safeNoteRepository.insertSafeNote(user.id, safeNote);
 }

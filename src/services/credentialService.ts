@@ -17,7 +17,7 @@ async function getCredential(userId: number, credentialId: number) {
     userId,
     credentialId
   );
-  if (!credential) throw notFoundError("Credential doesn't exist");
+  if (!credential) throw notFoundError("Esta credencial não existe!");
   return {
     ...credential,
     password: decrypt(credential.password),
@@ -29,7 +29,7 @@ async function createCredential(user: User, credential: CreateCredentialData) {
     user.id,
     credential.title
   );
-  if (existingCredential) throw conflictError("Title already in use");
+  if (existingCredential) throw conflictError("Este título já está em uso!");
 
   const credentialPassword = credential.password;
   const credentialInfos = {

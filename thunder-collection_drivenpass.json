@@ -1,0 +1,407 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "drivenpass",
+  "dateExported": "2022-09-12T19:15:16.338Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "4f16a52e-1532-459d-9191-004947d1d3cf",
+      "name": "auth",
+      "containerId": "",
+      "created": "2022-09-12T17:31:26.077Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "bfd2dd15-2ebd-4031-a771-1110d6a38bab",
+      "name": "credentials",
+      "containerId": "",
+      "created": "2022-09-12T17:31:26.078Z",
+      "sortNum": 20000
+    },
+    {
+      "_id": "b8ac83ec-cfbd-4bbc-b0a0-325195899dac",
+      "name": "safeNotes",
+      "containerId": "",
+      "created": "2022-09-12T17:31:26.079Z",
+      "sortNum": 30000
+    },
+    {
+      "_id": "46f8d53b-cb9c-4fc7-8a1e-bd1495be7e86",
+      "name": "cards",
+      "containerId": "",
+      "created": "2022-09-12T17:31:26.080Z",
+      "sortNum": 40000
+    },
+    {
+      "_id": "c97f4b60-8ea9-4394-8837-302221aeaa7e",
+      "name": "networks",
+      "containerId": "",
+      "created": "2022-09-12T17:31:26.081Z",
+      "sortNum": 50000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "4bcb6dac-5ba3-4594-9ae5-2676b75c6fc2",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "4f16a52e-1532-459d-9191-004947d1d3cf",
+      "name": "create user",
+      "url": "https://drivenpass-joaomarcelo.herokuapp.com/signup",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-09-12T17:31:26.078Z",
+      "modified": "2022-09-12T19:14:44.301Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"meuteste@testando.com\",\n  \"password\": \"testeteste10\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "d39b8af1-bac3-42a3-aba4-3837a5ff7934",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "4f16a52e-1532-459d-9191-004947d1d3cf",
+      "name": "login user",
+      "url": "localhost:5000/signin",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-09-12T17:31:26.079Z",
+      "modified": "2022-09-12T18:16:51.019Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"email\": \"meuteste@testando.com\",\n    \"password\": \"testeteste10\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "74db9034-8511-40c0-a7bc-4e8620defb14",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "bfd2dd15-2ebd-4031-a771-1110d6a38bab",
+      "name": "get all credentials",
+      "url": "localhost:5000/credentials",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2022-09-12T17:31:26.080Z",
+      "modified": "2022-09-12T18:24:45.832Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "17e8430c-6fd5-4f5a-a818-93c3b4f7bb66",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "b8ac83ec-cfbd-4bbc-b0a0-325195899dac",
+      "name": "get all safeNotes",
+      "url": "localhost:5000/safenotes",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2022-09-12T17:31:26.081Z",
+      "modified": "2022-09-12T18:40:08.157Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "a68327ea-0ea0-4050-a99b-f7769703e0db",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "46f8d53b-cb9c-4fc7-8a1e-bd1495be7e86",
+      "name": "get all cards",
+      "url": "localhost:5000/cards",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2022-09-12T17:31:26.082Z",
+      "modified": "2022-09-12T18:41:34.592Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "224d5468-5378-4b8d-b116-ffabef7b4cf8",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "c97f4b60-8ea9-4394-8837-302221aeaa7e",
+      "name": "get all networks",
+      "url": "localhost:5000/networks",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2022-09-12T17:31:26.083Z",
+      "modified": "2022-09-12T18:40:46.849Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "35e7b527-4afe-4e51-9934-16e1ec37d751",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "bfd2dd15-2ebd-4031-a771-1110d6a38bab",
+      "name": "create credential",
+      "url": "localhost:5000/credentials",
+      "method": "POST",
+      "sortNum": 25000,
+      "created": "2022-09-12T17:31:26.084Z",
+      "modified": "2022-09-12T18:38:49.128Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Login Teste\",\n  \"url\": \"https://teste.com.br\",\n  \"username\": \"teste\",\n  \"password\": \"teste\" \n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "5af0f7c9-414d-49fe-913e-79166f4fd1bc",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "b8ac83ec-cfbd-4bbc-b0a0-325195899dac",
+      "name": "create safenote",
+      "url": "localhost:5000/safenotes",
+      "method": "POST",
+      "sortNum": 25000,
+      "created": "2022-09-12T17:31:26.085Z",
+      "modified": "2022-09-12T18:40:07.638Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Anotação teste\",\n  \"note\": \"Eu sou uma anotação de teste!\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "3d6d9bfe-3f87-4edf-b51e-f82f2dd4767e",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "46f8d53b-cb9c-4fc7-8a1e-bd1495be7e86",
+      "name": "create card",
+      "url": "localhost:5000/cards",
+      "method": "POST",
+      "sortNum": 25000,
+      "created": "2022-09-12T17:31:26.086Z",
+      "modified": "2022-09-12T18:40:35.185Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Cartão Teste\",\n  \"number\": \"1234 5678 9101 1112\",\n  \"cardHolderName\": \"TESTE T. TESTE\",\n  \"securityCode\": \"123\",\n  \"expirationDate\": \"09/23\",\n  \"password\": \"1234\",\n  \"isVirtual\": false,\n  \"type\": \"credit\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "af2dbc56-30a5-4c09-aa7d-6c87e8689817",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "c97f4b60-8ea9-4394-8837-302221aeaa7e",
+      "name": "create network",
+      "url": "localhost:5000/networks",
+      "method": "POST",
+      "sortNum": 25000,
+      "created": "2022-09-12T17:31:26.088Z",
+      "modified": "2022-09-12T18:40:50.201Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Rede Teste\",\n  \"network\": \"Teste\",\n  \"password\": \"Teste\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "d644d653-3477-4d00-aa17-c03427e58eb2",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "bfd2dd15-2ebd-4031-a771-1110d6a38bab",
+      "name": "get specific credential",
+      "url": "localhost:5000/credentials/3",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2022-09-12T17:31:26.089Z",
+      "modified": "2022-09-12T18:43:49.519Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "1538da80-3a34-46a4-952e-dd87ec4fda12",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "b8ac83ec-cfbd-4bbc-b0a0-325195899dac",
+      "name": "get specific safenote",
+      "url": "localhost:5000/safenotes/3",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2022-09-12T17:31:26.090Z",
+      "modified": "2022-09-12T18:47:03.509Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "a1ebc17b-e3e6-46cf-9b55-73dc58e8f409",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "46f8d53b-cb9c-4fc7-8a1e-bd1495be7e86",
+      "name": "get specific card",
+      "url": "localhost:5000/cards/3",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2022-09-12T17:31:26.091Z",
+      "modified": "2022-09-12T18:43:55.705Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "d1a4d278-969a-4fb0-963a-734ec457ae25",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "c97f4b60-8ea9-4394-8837-302221aeaa7e",
+      "name": "get specific network",
+      "url": "localhost:5000/networks/2",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2022-09-12T17:31:26.092Z",
+      "modified": "2022-09-12T18:55:06.088Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "32925b27-a59b-43d0-8d27-63310643f4a0",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "bfd2dd15-2ebd-4031-a771-1110d6a38bab",
+      "name": "delete credential",
+      "url": "localhost:5000/credentials/2",
+      "method": "DELETE",
+      "sortNum": 40000,
+      "created": "2022-09-12T17:31:26.093Z",
+      "modified": "2022-09-12T18:39:30.263Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "65a33a82-8bf4-4c98-b44d-1cd6801afbfb",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "b8ac83ec-cfbd-4bbc-b0a0-325195899dac",
+      "name": "delete safenote",
+      "url": "localhost:5000/safenotes/2",
+      "method": "DELETE",
+      "sortNum": 40000,
+      "created": "2022-09-12T17:31:26.094Z",
+      "modified": "2022-09-12T18:41:30.774Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "272ce6eb-e0e9-44b7-a5eb-2b4b3d4f827f",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "46f8d53b-cb9c-4fc7-8a1e-bd1495be7e86",
+      "name": "delete card",
+      "url": "localhost:5000/cards/2",
+      "method": "DELETE",
+      "sortNum": 40000,
+      "created": "2022-09-12T17:31:26.095Z",
+      "modified": "2022-09-12T18:43:01.792Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "038bb68b-dd49-4128-8240-b9469ce8d0bb",
+      "colId": "220f677f-2a2f-4f60-8b8f-d8d5e05f6f4c",
+      "containerId": "c97f4b60-8ea9-4394-8837-302221aeaa7e",
+      "name": "delete network",
+      "url": "localhost:5000/networks/2",
+      "method": "DELETE",
+      "sortNum": 40000,
+      "created": "2022-09-12T17:31:26.096Z",
+      "modified": "2022-09-12T18:43:40.782Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1ODE2NzAwNX0.FelxTyCXFpG8txt070kYoqeDhhLV6Ti28WhsyuScGPg"
+        }
+      ],
+      "params": [],
+      "tests": []
+    }
+  ]
+}

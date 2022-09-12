@@ -13,7 +13,7 @@ async function getAllNetworks(userId: number) {
 
 async function getNetwork(userId: number, networkId: number) {
   const network = await networkRepository.getNetwork(userId, networkId);
-  if (!network) throw notFoundError("Network doesn't exist");
+  if (!network) throw notFoundError("Esta rede não existe!");
 
   return { ...network, password: decrypt(network.password) };
 }

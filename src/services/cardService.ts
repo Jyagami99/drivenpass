@@ -17,7 +17,7 @@ async function getAll(userId: number) {
 
 async function getCard(userId: number, cardId: number) {
   const card = await cardRepository.getCard(userId, cardId);
-  if (!card) throw notFoundError("Card doesn't exist");
+  if (!card) throw notFoundError("Este cartão não existe!");
 
   return {
     ...card,
@@ -28,7 +28,7 @@ async function getCard(userId: number, cardId: number) {
 
 async function createCard(user: User, card: CreateCardData) {
   const existingCard = await cardRepository.getCardByTitle(user.id, card.title);
-  if (existingCard) throw conflictError("Title already in use");
+  if (existingCard) throw conflictError("Este título já está em uso!");
 
   const cardInfos: CreateCardData = {
     ...card,

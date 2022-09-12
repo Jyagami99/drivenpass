@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
-// import { User } from "@prisma/client";
 import { CreateUserData } from "../types/createUserData";
 import * as userRepository from "../repositories/userRepository";
 import {
@@ -12,11 +11,9 @@ import jwt from "jsonwebtoken";
 
 dotenv.config();
 
-// export type CreateUserData = Omit<User, "id">;
-
 async function createUser(user: CreateUserData) {
   const existingUser = await userRepository.findUserByEmail(user.email);
-  if (existingUser) throw conflictError("User doesn't exist");
+  if (existingUser) throw conflictError("Este usuário não existe!");
 
   const SALT = 10;
   const hashedPassword = bcrypt.hashSync(user.password, SALT);
@@ -31,17 +28,17 @@ async function login(login: CreateUserData) {
 
 async function getUserOrFail(login: CreateUserData) {
   const user = await userRepository.findUserByEmail(login.email);
-  if (!user) throw unauthorizedError("Invalid credentials");
+  if (!user) throw unauthorizedError("Credenciais invalidas!");
 
   const isPasswordValid = bcrypt.compareSync(login.password, user.password);
-  if (!isPasswordValid) throw unauthorizedError("Invalid credentials");
+  if (!isPasswordValid) throw unauthorizedError("Credenciais invalidas!");
 
   return user;
 }
 
 async function findUserById(id: number) {
   const user = await userRepository.findById(id);
-  if (!user) throw notFoundError("User not found");
+  if (!user) throw notFoundError("Usuário não encontrado!");
 
   return user;
 }

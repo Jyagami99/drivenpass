@@ -18,11 +18,11 @@ export async function getCredentials(req: Request, res: Response) {
     res.sendStatus(422);
   }
 
-  const creditial = await credentialService.getCredential(
+  const credential = await credentialService.getCredential(
     user.id,
     credentialId
   );
-  res.send(creditial);
+  res.send(credential);
 }
 
 export async function createCredential(req: Request, res: Response) {
