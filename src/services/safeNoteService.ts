@@ -1,4 +1,4 @@
-import { SafeNote, User } from "@prisma/client";
+import { User } from "@prisma/client";
 import { CreateSafeNoteData } from "../types/createSafeNoteData";
 import * as safeNoteRepository from "../repositories/safeNoteRepository";
 import { conflictError, notFoundError } from "../utils/errorUtils";

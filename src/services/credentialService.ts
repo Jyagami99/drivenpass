@@ -1,4 +1,4 @@
-import { Credential, User } from "@prisma/client";
+import { User } from "@prisma/client";
 import * as credencialRepository from "../repositories/credentialRepository";
 import { CreateCredentialData } from "../types/createCredentialData";
 import { decrypt, encrypt } from "../utils/criptrUtils";
